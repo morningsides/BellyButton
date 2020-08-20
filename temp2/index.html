@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bellybutton Biodiversity</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -19,7 +20,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-3">
         <div class="well">
           <h5>Test Subject ID No.:</h5>
           <!-- <select id="selDataset"></select> -->
@@ -32,8 +33,10 @@
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
+      <div class="col-md-8">
+        <div id="bar">
+          <div id="plot"></div>
+        </div>
       </div>
       <div class="col-md-5">
         <div id="gauge"></div>
@@ -45,6 +48,7 @@
       </div>
     </div>
   </div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
