@@ -17,6 +17,7 @@ function optionChanged(newSample) {
     buildMetadata(newSample);
     buildBar(newSample);
     buildPlt(newSample);
+    buildGague(newSample);
 }
 
 function buildMetadata(sample) {
@@ -106,8 +107,44 @@ function buildPlt(sample) {
     })
 }
 
+function buildGague(sample) {
+    d3.json("samples.json").then((data) => {
+        // Extract sample data
+        var samples = data.metadata;
+        var sampleArray = samples.filter(sampleObj => sampleObj.id == sample);
+        var result = sampleArray[0];
+
+        // Trace for the sample data. Selecting only last 10 and reversing so it looks
+        // nice in the bar chart
+        var trace = {
+
+            value: result.wfreq,
+            title: {
+                text: "Belly Button Washing Frequency"
+            },
+            type: "indicator",
+            mode: "gauge+number"
+        };
+
+        // Setting our layout object and encapsulating our trace object in an array 
+        var layout = {
+            width: 600,
+            height: 500,
+            margin: {
+                t: 0,
+                b: 0
+            }
+        };
+        data = [trace]
+
+        // Render the plot to the div tag with id "plot"
+        Plotly.newPlot("gauge", data, layout);
+    })
+}
+
 
 init();
 buildMetadata('940');
 buildBar('940');
 buildPlt('940');
+buildGague('940')
