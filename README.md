@@ -1,1 +1,2 @@
-# BellyButton
+# BellyButtonCharts
+In this weeks module, I created a dashboard that displays charts based on a given dataset (samples.json). On page load a function parses the data for a list of ids. From the parsed data id a panel will display all relevent info from the sample and display 3 charts: (bar chart, gague chart and bubble chart). One thing id like to eventually change is that when new data is selected the charts redraw by calling the newPlot method vs just re-rending with the changes only.  
